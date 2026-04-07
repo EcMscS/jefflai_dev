@@ -146,6 +146,9 @@
         </div>
     </footer>
 
+    <!-- Sticky section label -->
+    <div id="section-label" aria-hidden="true"></div>
+
     <script>
         // Smooth-scroll nav links
         document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
@@ -170,6 +173,50 @@
         document.querySelectorAll('.app-card, .skill-item, .about-inner').forEach(function(el) {
             observer.observe(el);
         });
+
+        // Parallax on app screenshots
+        var parallaxImgs = document.querySelectorAll('.app-card-image img');
+
+        function updateParallax() {
+            parallaxImgs.forEach(function(img) {
+                var card = img.closest('.app-card');
+                var rect = card.getBoundingClientRect();
+                var center = rect.top + rect.height / 2 - window.innerHeight / 2;
+                img.style.transform = 'translateY(' + (center * 0.10).toFixed(1) + 'px)';
+            });
+        }
+
+        // Sticky section label
+        var sectionLabel = document.getElementById('section-label');
+        var labelSections = [
+            { el: document.querySelector('#portfolio'), name: 'Portfolio' },
+            { el: document.querySelector('#skills'),    name: 'Skills'    },
+            { el: document.querySelector('#about'),     name: 'About'     },
+        ];
+
+        function updateSectionLabel() {
+            var current = null;
+            labelSections.forEach(function(s) {
+                if (!s.el) return;
+                var rect = s.el.getBoundingClientRect();
+                if (rect.top <= 80 && rect.bottom > 80) current = s.name;
+            });
+            if (current) {
+                sectionLabel.textContent = current;
+                sectionLabel.classList.add('visible');
+            } else {
+                sectionLabel.classList.remove('visible');
+            }
+        }
+
+        function onScroll() {
+            updateParallax();
+            updateSectionLabel();
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        updateParallax();
+        updateSectionLabel();
     </script>
 
 </body>
