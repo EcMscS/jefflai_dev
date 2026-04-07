@@ -33,6 +33,29 @@ body {
     line-height: 1.6;
 }
 
+/* ─── Dark mode ──────────────────────────────────────────────────────────── */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg:             #000000;
+        --color-bg-alt:         #1c1c1e;
+        --color-text:           #f5f5f7;
+        --color-text-secondary: #a1a1a6;
+        --color-accent:         #2997ff;
+        --color-accent-hover:   #409cff;
+        --color-border:         #3a3a3c;
+    }
+
+    #nav {
+        background: rgba(0, 0, 0, 0.8) !important;
+        border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .app-card { background: #1c1c1e; }
+
+    .hero-image { box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); }
+}
+
 /* ─── Navigation ───────────────────────────────────────────────────────────── */
 
 #nav {
@@ -80,6 +103,24 @@ body {
 
 .nav-links a:hover { opacity: 1; }
 
+/* ─── Hero load animations ───────────────────────────────────────────────── */
+
+@keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes heroFadeScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1);    }
+}
+
+.hero-eyebrow { animation: heroFadeUp   0.8s cubic-bezier(0.25,0.46,0.45,0.94) 0.10s both; }
+.hero-text h1 { animation: heroFadeUp   0.8s cubic-bezier(0.25,0.46,0.45,0.94) 0.25s both; }
+.hero-sub     { animation: heroFadeUp   0.8s cubic-bezier(0.25,0.46,0.45,0.94) 0.40s both; }
+.hero-btn     { animation: heroFadeUp   0.8s cubic-bezier(0.25,0.46,0.45,0.94) 0.52s both; }
+.hero-image   { animation: heroFadeScale 1.0s cubic-bezier(0.25,0.46,0.45,0.94) 0.15s both; }
+
 /* ─── Hero ──────────────────────────────────────────────────────────────────── */
 
 #hero {
@@ -110,7 +151,7 @@ body {
 }
 
 .hero-text h1 {
-    font-size: clamp(48px, 7vw, 88px);
+    font-size: clamp(56px, 7vw, 96px);
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: -0.03em;
@@ -119,7 +160,7 @@ body {
 }
 
 .hero-sub {
-    font-size: 19px;
+    font-size: 21px;
     color: var(--color-text-secondary);
     line-height: 1.55;
     max-width: 460px;
@@ -168,7 +209,7 @@ body {
 }
 
 .section-header h2 {
-    font-size: clamp(36px, 5vw, 56px);
+    font-size: clamp(42px, 5vw, 64px);
     font-weight: 700;
     letter-spacing: -0.025em;
     color: var(--color-text);
@@ -218,7 +259,7 @@ body {
 
 .app-card-image {
     flex-shrink: 0;
-    width: 260px;
+    width: 340px;
 }
 
 .app-card-image img {
@@ -240,7 +281,7 @@ body {
 }
 
 .app-card-content h3 {
-    font-size: 40px;
+    font-size: 42px;
     font-weight: 700;
     letter-spacing: -0.025em;
     color: var(--color-text);
@@ -249,14 +290,14 @@ body {
 }
 
 .app-tagline {
-    font-size: 21px;
+    font-size: 23px;
     color: var(--color-text-secondary);
     font-weight: 400;
     margin-bottom: 20px;
 }
 
 .app-description {
-    font-size: 16px;
+    font-size: 18px;
     color: var(--color-text-secondary);
     line-height: 1.7;
     margin-bottom: 16px;
@@ -350,7 +391,7 @@ body {
 }
 
 .about-inner h2 {
-    font-size: clamp(36px, 5vw, 56px);
+    font-size: clamp(42px, 5vw, 64px);
     font-weight: 700;
     letter-spacing: -0.025em;
     color: var(--color-text);
@@ -358,7 +399,7 @@ body {
 }
 
 .about-inner p {
-    font-size: 17px;
+    font-size: 19px;
     color: var(--color-text-secondary);
     line-height: 1.75;
     margin-bottom: 16px;
@@ -425,6 +466,33 @@ body {
     color: var(--color-text-secondary);
 }
 
+/* ─── Sticky section label ───────────────────────────────────────────────── */
+
+#section-label {
+    position: fixed;
+    top: calc(var(--nav-height) + 14px);
+    right: 22px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-alt);
+    padding: 5px 13px;
+    border-radius: 980px;
+    border: 1px solid var(--color-border);
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 99;
+    pointer-events: none;
+}
+
+#section-label.visible {
+    opacity: 1;
+    transform: none;
+}
+
 /* ─── Responsive ─────────────────────────────────────────────────────────── */
 
 @media (max-width: 768px) {
@@ -454,7 +522,7 @@ body {
     }
 
     .app-card-image {
-        width: 200px;
+        width: 260px;
         margin: 0 auto;
     }
 
