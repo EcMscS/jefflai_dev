@@ -259,7 +259,7 @@ body {
 
 .app-card-image {
     flex-shrink: 0;
-    width: 260px;
+    width: 340px;
 }
 
 .app-card-image img {
@@ -522,7 +522,7 @@ body {
     }
 
     .app-card-image {
-        width: 200px;
+        width: 260px;
         margin: 0 auto;
     }
 
