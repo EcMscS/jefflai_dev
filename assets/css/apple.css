@@ -151,7 +151,7 @@ body {
 }
 
 .hero-text h1 {
-    font-size: clamp(48px, 7vw, 88px);
+    font-size: clamp(56px, 7vw, 96px);
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: -0.03em;
@@ -160,7 +160,7 @@ body {
 }
 
 .hero-sub {
-    font-size: 19px;
+    font-size: 21px;
     color: var(--color-text-secondary);
     line-height: 1.55;
     max-width: 460px;
@@ -209,7 +209,7 @@ body {
 }
 
 .section-header h2 {
-    font-size: clamp(36px, 5vw, 56px);
+    font-size: clamp(42px, 5vw, 64px);
     font-weight: 700;
     letter-spacing: -0.025em;
     color: var(--color-text);
@@ -281,7 +281,7 @@ body {
 }
 
 .app-card-content h3 {
-    font-size: 40px;
+    font-size: 42px;
     font-weight: 700;
     letter-spacing: -0.025em;
     color: var(--color-text);
@@ -290,14 +290,14 @@ body {
 }
 
 .app-tagline {
-    font-size: 21px;
+    font-size: 23px;
     color: var(--color-text-secondary);
     font-weight: 400;
     margin-bottom: 20px;
 }
 
 .app-description {
-    font-size: 16px;
+    font-size: 18px;
     color: var(--color-text-secondary);
     line-height: 1.7;
     margin-bottom: 16px;
@@ -391,7 +391,7 @@ body {
 }
 
 .about-inner h2 {
-    font-size: clamp(36px, 5vw, 56px);
+    font-size: clamp(42px, 5vw, 64px);
     font-weight: 700;
     letter-spacing: -0.025em;
     color: var(--color-text);
@@ -399,7 +399,7 @@ body {
 }
 
 .about-inner p {
-    font-size: 17px;
+    font-size: 19px;
     color: var(--color-text-secondary);
     line-height: 1.75;
     margin-bottom: 16px;
